@@ -25,11 +25,11 @@ function App () {
     setNewDescription ('');
     setNewTodoTitle ('');
   };
-  const resetTodo = () => {
-    allTodos('');
-    newTodoTitle('');
-    newDescription('');
-    
+  const resetTodo = (index) => {
+    let reducedTodos = [...allTodos];
+    reducedTodos.splice(index);
+    localStorage.setItem('todolist', JSON.stringify(reducedTodos));
+    setAllTodos(reducedTodos);
     
 
   };
